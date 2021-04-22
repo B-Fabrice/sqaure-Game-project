@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Magic Square</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MagicStyle.css">
+</head>
+<body onload="createSq()">
+
+    <div id="mainMe">
+		<div id="readMe">
+            <span id="mySpan">&times;</span>
+		    <h2>Welcome to magic square puzzle</h2>
+		    <p>To complete this game, you need to drag numbers in squares so that sum of numbers in each row,
+             each column and each diagonal( there are only two diagonals) are the some.</p>
+        </div>
+	</div>
+
+    <div id="main-square">
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+        <div class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+    </div>
+
+    <div id="num" class="numero">
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-1" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-2" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-3" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-4" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-5" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-6" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-7" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-8" draggable="true" ondragstart="drag(event)"></h1></div>
+        <div ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-9" draggable="true" ondragstart="drag(event)"></h1></div>
+    </div>
+
+    <div id="decMe">
+		<button id="check">Check</button>
+	</div>
+
+    <script src="MagicScript.js"></script>
+</body>

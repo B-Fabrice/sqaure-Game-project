@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>squareComp Game</title>
+	<link rel="stylesheet" type="text/css" href="GameStyle2.css">
+</head>
+<body onkeypress="window.location.reload()" onload="createSq()">
+	<div class="main-square">
+
+			<div class="row">
+				<div id="square-1" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-2" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-3" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-4" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			</div>
+
+			<div class="row">
+				<div id="square-5" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+				<div id="square-6" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-7" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-8" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			</div>
+
+			<div class="row">
+				<div id="square-9"  class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+				<div id="square-10" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-11" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-12" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			</div>
+
+			<div class="row">
+				<div id="square-13" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+				<div id="square-14" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-15" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			    <div id="square-16" class="drop-square" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+			</div>
+
+	</div>
+
+	<div class="numero">
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-1"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-2"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-3"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-4"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-5"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-6"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-7"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-8"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-9"  draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-10" draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-11" draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-12" draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-13" draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-14" draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-15" draggable="true" ondragstart="drag(event)"></h1></div>
+		<div  ondrop="drop(event)" ondragover="allowdrop(event)"><h1 id="num-16" draggable="true" ondragstart="drag(event)"></h1></div>
+	</div>
+
+	<div id="decMe" class="result">
+		<button id="check">Check</button>
+	</div>
+
+	<script  src="GameJS2.js" type="text/javascript">
+	</script>
+
+</body>
+</html>

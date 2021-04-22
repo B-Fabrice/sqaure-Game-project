@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>demo</title>
+        <style>
+            #flex{display: flex;flex-wrap: wrap;margin: auto;padding: 10px;justify-content: center;background-color: cadetblue;width: 300px;height: 300px;}
+            *{box-sizing: border-box;}
+
+            .f-box{background-color: rgb(197, 232, 233);font-size: 30px;margin: 3px;text-align: center;width: 80px;padding: 20px;}
+        </style>
+    </head>
+    <body>
+        <div id="flex">
+            <div id="box-1" class="f-box"></div>
+            <div id="box-2" class="f-box"></div>
+            <div id="box-3" class="f-box"></div>
+            <div id="box-4" class="f-box"></div>
+            <div id="box-5" class="f-box"></div>
+            <div id="box-6" class="f-box"></div>
+            <div id="box-7" class="f-box"></div>
+            <div id="box-8" class="f-box"></div>
+            <div id="box-9" class="f-box"></div>
+        </div>
+
+        <script>
+            var numero = [], numero, index, Randn, i, j, Obj = [];
+
+            function CreateObj(){
+                    var Numbers = [];
+                    Obj = [];
+            
+                for(i=0; i<9; i++){
+                    numero[i] = i+1;
+                }
+            
+                for(i=0; i<9; i++){
+                    Randn = Rand(numero);
+                    Numbers.push(Randn);
+                    numero.splice(numero.indexOf(Randn), 1);
+                }
+                for(i=0; i<3; i++){
+                    Obj[i] = [];
+                    for(j=0; j<3; j++){
+                        Obj[i][j] = Numbers[3*i + j];
+                    }
+                }
+                return Obj;
+            }
+            
+            function Rand(array){
+                index = Math.floor(Math.random() * array.length);
+                return array[index];
+            }
+            
+            function truth(tar){
+                var truth = [];
+                for(i=0; i<3; i++){
+                    truth.push((tar[i][0] + tar[i][1] + tar[i][2] == 15));
+                    truth.push((tar[0][i] + tar[1][i] + tar[2][i] == 15));
+                }
+                truth.push((tar[0][0] + tar[1][1] + tar[2][2]) == 15);
+                truth.push((tar[0][2] + tar[1][1] + tar[2][0]) == 15);
+            
+                for(i=0; i<8; i++){
+                    if(truth[i] == false){
+                        truthV = false;
+                        break;
+                    }
+                    else{
+                        truthV = true;
+                    }
+                }
+                return truthV;
+            }
+            
+            var myObj = CreateObj();
+            
+            function mySq(){
+                while (truth(myObj) == false){
+                    myObj = CreateObj();
+                    if(truth(myObj) == true){
+                        break;
+                    }
+                }
+                return myObj;
+            }
+
+            var SqValue = mySq();
+            var slide = document.querySelectorAll(".f-box");
+            for(i=0; i<3; i++){
+                for(j=0; j<3; j++){
+                    slide[3*i+j].innerText = SqValue[i][j];
+                }
+            }
+        </script>
+    </body>
+</html>
