@@ -1,69 +1,148 @@
-<script>
-    var numero = [], numero, index, Randn, i, j, Obj = [];
-
-    function CreateObj(){
-            var Numbers = [];
-            Obj = [];
-
-        for(i=0; i<9; i++){
-            numero[i] = i+1;
-        }
-
-        for(i=0; i<9; i++){
-            Randn = Rand(numero);
-            Numbers.push(Randn);
-            numero.splice(numero.indexOf(Randn), 1);
-        }
-        for(i=0; i<3; i++){
-            Obj[i] = [];
-            for(j=0; j<3; j++){
-                Obj[i][j] = Numbers[3*i + j];
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>rand logic</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{
+                box-sizing: border-box;
             }
-        }
-        return Obj;
-    }
 
-    function Rand(array){
-        index = Math.floor(Math.random() * array.length);
-        return array[index];
-    }
+            .mainDiv{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+            }
 
-    function truth(tar){
-        var truth = [];
-        for(i=0; i<3; i++){
-            truth.push((tar[i][0] + tar[i][1] + tar[i][2] == 15));
-            truth.push((tar[0][i] + tar[1][i] + tar[2][i] == 15));
-        }
-        truth.push((tar[0][0] + tar[1][1] + tar[2][2]) == 15);
-        truth.push((tar[0][2] + tar[1][1] + tar[2][0]) == 15);
+            .Cont{
+                margin: 20px auto;
+                width: 150px;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+            }
+            .subC{
+                width: 100%;
+                height: fit-content;
+                background-color: aqua;
+                border: 1px solid black;
+                display: flex;
+            }
+            .demo{
+                width: 100%;
+                height: 50px;
+                background-color: aquamarine;
+                margin: 0.1px;
+                border: 1px solid black;
+                text-align: center;
+                font-size: 25px;
+            }
+        </style>
+    </head>
 
-        for(i=0; i<8; i++){
-            if(truth[i] == false){
+    <body>
+        <div class="mainDiv"></div>
+        <script>
+            var numero = [], numero, index, Randn, i, j, Obj = [];
+        
+            function CreateObj(){
+                    var Numbers = [];
+                    Obj = [];
+        
+                for(i=0; i<9; i++){
+                    numero[i] = i+1;
+                }
+        
+                for(i=0; i<9; i++){
+                    Randn = Rand(numero);
+                    Numbers.push(Randn);
+                    numero.splice(numero.indexOf(Randn), 1);
+                }
+                for(i=0; i<3; i++){
+                    Obj[i] = [];
+                    for(j=0; j<3; j++){
+                        Obj[i][j] = Numbers[3*i + j];
+                    }
+                }
+                return Obj;
+            }
+        
+            function Rand(array){
+                index = Math.floor(Math.random() * array.length);
+                return array[index];
+            }
+        
+            function truth(tar){
+                var truth = [];
+                for(i=0; i<3; i++){
+                    truth.push((tar[i][0] + tar[i][1] + tar[i][2] == 15));
+                    truth.push((tar[0][i] + tar[1][i] + tar[2][i] == 15));
+                }
+                truth.push((tar[0][0] + tar[1][1] + tar[2][2]) == 15);
+                truth.push((tar[0][2] + tar[1][1] + tar[2][0]) == 15);
+        
+                for(i=0; i<8; i++){
+                    if(truth[i] == false){
+                        truthV = false;
+                        break;
+                    }
+                    else{
+                        truthV = true;
+                    }
+                }
+                return truthV;
+            }
+        
+            function mySq(){
+                var myObj = CreateObj();
+                var truthV = truth(myObj);
+
+                while (truthV == false){
+                    myObj = CreateObj();
+                    truthV = truth(myObj);
+                }
+
                 truthV = false;
-                break;
+                return myObj;
             }
-            else{
-                truthV = true;
+
+            var objContainer = [];
+            var len = 0, j=0;
+            demo = document.querySelectorAll(".demo");
+            
+            while( len<8 ){
+                var demo = mySq();
+                objContainer.push(demo);
+                len++;            
             }
-        }
-        return truthV;
-    }
 
-    var myObj = CreateObj();
-    var truthV = truth(myObj);
+            function createView(){
+                var mainDiv = document.querySelector(".mainDiv"),
+                ni, tri, one;
 
-    function mySq(){
-        while (truthV == false){
-            myObj = CreateObj();
-            truthV = truth(myObj);
-            if(truthV == true){
-                truthV = false;
-                break;
+                for(one = 0; one < 8; one++){
+                    var innerDemo = objContainer[one];
+                    var Cont = document.createElement("div");
+                    Cont.classList.add("Cont");
+
+                    for(tri = 0; tri < 3; tri++){
+                        var subC = document.createElement("div");
+                        subC.classList.add("subC");
+                        Cont.appendChild(subC);
+    
+                        for(ni = 0; ni < 3; ni++){
+                            var demo = document.createElement("demo");
+                            demo.classList.add("demo");
+                            demo.innerText = innerDemo[tri][ni];
+                            subC.appendChild(demo);
+                        }
+                    }
+
+                    mainDiv.appendChild(Cont);
+                }
+                
             }
-        }
-        return myObj;
-    }
-
-    var ObjArr = mySq();
-    console.log(ObjArr);
-</script>
+            createView();
+        </script>
+    </body>
+</html>
