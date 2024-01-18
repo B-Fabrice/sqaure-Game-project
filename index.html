@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form</title>
+    <script>
+        function displayInput() {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+            // Get the value from the input field
+            var inputVal = document.getElementById("inputField").value;
+
+            // Display the input value
+            document.getElementById("displayArea").textContent = "You entered: " + inputVal;
+        }
+    </script>
+</head>
+<body>
+    <h2>Simple Form</h2>
+    <form id="myForm" onsubmit="displayInput()">
+        <label for="inputField">Enter something:</label>
+        <input type="text" id="inputField" name="inputField">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="displayArea"></p>
+</body>
+</html>
